@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('din-auto-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'dark' || (!saved && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Din Auto // Ultimate Automotive Ecosystem & Dealership</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-stone-900 antialiased selection:bg-rose-600 selection:text-white overflow-x-hidden">
+
+ <!-- Main Header -->
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href="index.html" class="font-serif italic text-lg sm:text-2xl font-black text-stone-900 tracking-tight flex items-center gap-1.5 sm:gap-2 shrink-0">
+      <i data-lucide="car" class="w-5 h-5 sm:w-6 sm:h-6 text-rose-600 not-italic"></i> 
+      <span>Din Auto<span class="text-rose-600 font-sans not-italic text-[10px] sm:text-xs align-top">®</span></span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 text-xs tracking-widest font-mono text-stone-600 uppercase">
+      <a href="index.html" class="hover:text-rose-600 transition-colors">Home</a>
+      <a href="About/about.html" class="hover:text-rose-600 transition-colors">About Us</a>
+      <a href="services/services.html" class="hover:text-rose-600 transition-colors">Services</a>
+      <a href="blog/blog.html" class="hover:text-rose-600 transition-colors">Blog</a>
+      <a href="contact/contact.html" class="hover:text-rose-600 transition-colors">Contact</a>
+    </nav>
+
+    <!-- Actions (Cart & Hamburger) -->
+    <div class="flex items-center space-x-1.5 sm:space-x-3">
+      <button id="cart-trigger-btn" class="flex items-center space-x-1.5 border border-stone-300 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-stone-100 hover:border-stone-400 transition-colors">
+        <i data-lucide="shopping-bag" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600"></i>
+        <span class="text-[10px] sm:text-xs font-mono text-stone-900 uppercase tracking-wider">Cart [<span id="nav-cart-count">0</span>]</span>
+      </button>
+
+      <button type="button" data-theme-toggle aria-label="Toggle dark mode" class="theme-toggle-btn p-2 sm:p-2.5 rounded-full border border-stone-300 bg-stone-100 hover:border-stone-400 transition-colors">
+        <i data-lucide="moon" class="theme-toggle-icon-moon w-3.5 h-3.5 sm:w-4 sm:h-4 text-stone-700"></i>
+        <i data-lucide="sun" class="theme-toggle-icon-sun w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500"></i>
+      </button>
+      <button id="mobile-menu-btn" aria-label="Toggle Navigation" class="md:hidden p-1.5 text-stone-800 rounded-lg active:bg-stone-100">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 py-4 flex flex-col space-y-3 font-mono text-xs uppercase tracking-widest text-stone-700">
+    <a href="index.html" class="hover:text-rose-600 py-2 border-b border-stone-100">Home</a>
+    <a href="About/about.html" class="hover:text-rose-600 py-2 border-b border-stone-100">About Us</a>
+    <a href="services/services.html" class="hover:text-rose-600 py-2 border-b border-stone-100">Services</a>
+    <a href="blog/blog.html" class="hover:text-rose-600 py-2 border-b border-stone-100">Blog</a>
+    <a href="contact/contact.html" class="hover:text-rose-600 py-2">Contact</a>
+  </div>
+</header>
+
+ <!-- 1. HERO SECTION -->
+<section id="home" class="relative pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 flex items-center border-b border-stone-200 overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1920&q=80');">
+  <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-white via-white/95 md:via-white/80 to-white/40 md:to-transparent pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center relative z-10 w-full">
+    <div class="lg:col-span-6 space-y-3 sm:space-y-6">
+      <span class="text-[10px] sm:text-xs font-mono text-rose-600 tracking-widest uppercase block">
+        // Premier Automotive Superstore & Atelier
+      </span>
+
+      <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight text-stone-900 leading-tight break-words">
+        Uncompromising <br class="hidden sm:inline" />
+        <span class="italic font-normal">Power & Precision.</span>
+      </h1>
+
+      <p class="text-xs sm:text-sm md:text-base font-sans text-stone-700 max-w-lg leading-relaxed">
+        Buy luxury supercars, rent high-performance vehicles for the track, or upgrade your machine with authentic aerospace-grade OEM spare parts.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-1">
+        <a href="#vehicles" class="px-5 py-3 bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs uppercase tracking-wider text-center rounded-full transition-colors shadow-lg shadow-rose-600/20">
+          Browse Vehicles
+        </a>
+        <a href="#parts" class="px-5 py-3 border border-stone-300 hover:border-stone-900 text-stone-900 font-mono text-xs uppercase tracking-wider text-center rounded-full transition-colors bg-white/80 backdrop-blur-sm">
+          Shop Spare Parts
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- 2. ADVANCED SEARCH FILTER -->
+  <section class="py-6 sm:py-10 px-3 sm:px-6 bg-stone-50 border-b border-stone-200 relative z-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-white rounded-2xl p-4 sm:p-8 border border-stone-200 shadow-xl text-stone-900">
+        
+        <div class="flex flex-row items-center justify-between border-b border-stone-200 pb-4 mb-5 gap-2">
+          <div class="flex items-baseline gap-1.5 sm:gap-3">
+            <h2 class="font-serif text-xl sm:text-3xl font-bold tracking-tight text-stone-900">Find Your Car</h2>
+            <span class="text-[9px] sm:text-xs font-mono text-rose-600 font-semibold cursor-pointer hover:underline uppercase">// Advance Search</span>
+          </div>
+          <div class="text-right">
+            <span class="font-serif text-lg sm:text-2xl font-bold text-rose-600">1260</span>
+            <span class="text-[9px] sm:text-xs font-mono uppercase text-stone-500 font-medium ml-0.5">Available</span>
+          </div>
+        </div>
+
+        <form class="space-y-4 sm:space-y-6" onsubmit="event.preventDefault();">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
+            <div>
+              <label class="block text-[10px] sm:text-xs font-mono font-semibold text-stone-600 uppercase mb-1 sm:mb-2">Car Condition</label>
+              <select class="w-full bg-stone-50 border border-stone-300 text-xs font-mono text-stone-800 p-2.5 sm:p-3.5 rounded-xl focus:border-rose-600 focus:outline-none transition-colors">
+                <option value="">Select Car Type</option>
+                <option value="new">Brand New</option>
+                <option value="used">Used / Pre-Owned</option>
+                <option value="rental">For Rent</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-[10px] sm:text-xs font-mono font-semibold text-stone-600 uppercase mb-1 sm:mb-2">Car Brand</label>
+              <select class="w-full bg-stone-50 border border-stone-300 text-xs font-mono text-stone-800 p-2.5 sm:p-3.5 rounded-xl focus:border-rose-600 focus:outline-none transition-colors">
+                <option value="">Select Your Brand</option>
+                <option value="porsche">Porsche</option>
+                <option value="bmw">BMW</option>
+                <option value="ferrari">Ferrari</option>
+                <option value="audi">Audi</option>
+                <option value="toyota">Toyota</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-[10px] sm:text-xs font-mono font-semibold text-stone-600 uppercase mb-1 sm:mb-2">Location</label>
+              <select class="w-full bg-stone-50 border border-stone-300 text-xs font-mono text-stone-800 p-2.5 sm:p-3.5 rounded-xl focus:border-rose-600 focus:outline-none transition-colors">
+                <option value="">Select Location</option>
+                <option value="stuttgart">Stuttgart, Germany</option>
+                <option value="dhaka">Dhaka, Bangladesh</option>
+                <option value="tokyo">Tokyo, Japan</option>
+                <option value="newyork">New York, USA</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-1">
+            <div class="sm:col-span-7 space-y-1">
+              <label class="block text-[10px] sm:text-xs font-mono font-semibold text-stone-600 uppercase">Price Range($)</label>
+              <div class="flex justify-between text-[11px] font-mono font-semibold text-rose-600">
+                <span>$<span id="min-price-val">30,000</span></span>
+                <span>$<span id="max-price-val">931,000</span></span>
+              </div>
+              <div class="relative py-1">
+                <input type="range" id="price-range" min="30000" max="931000" value="931000" step="1000" 
+                  class="w-full h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-rose-600">
+              </div>
+            </div>
+
+            <div class="sm:col-span-5 flex justify-end">
+              <button type="submit" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs font-bold py-3 sm:py-4 px-6 uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-rose-600/20">
+                Find A Vehicles
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FEATURES & SERVICES SECTION -->
+  <section class="py-10 sm:py-20 px-3 sm:px-6 bg-white border-b border-stone-200 relative z-20">
+    <div class="max-w-7xl mx-auto space-y-8 sm:space-y-16">
+      
+      <div class="grid grid-cols-3 gap-2 sm:gap-8 overflow-x-auto pb-2">
+        <div class="relative bg-stone-50 p-3 sm:p-8 rounded-xl sm:rounded-2xl border border-stone-200 hover:border-rose-600 transition-all duration-300 group shadow-sm min-w-[100px]">
+          <span class="absolute top-2 right-2 font-mono text-xs sm:text-6xl font-bold text-stone-300 group-hover:text-rose-600/20 transition-colors pointer-events-none">01</span>
+          <div class="space-y-1 sm:space-y-4 relative z-10">
+            <h3 class="font-serif text-xs sm:text-xl font-bold text-stone-900 group-hover:text-rose-600 transition-colors">Exclusive Supercars</h3>
+            <p class="text-[9px] sm:text-xs font-mono text-stone-600 leading-tight hidden sm:block">
+              Curated access to rare hypercars and limited OEM builds. Thoroughly inspected and certified for ultimate track performance.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative bg-stone-50 p-3 sm:p-8 rounded-xl sm:rounded-2xl border border-stone-200 hover:border-rose-600 transition-all duration-300 group shadow-sm min-w-[100px]">
+          <span class="absolute top-2 right-2 font-mono text-xs sm:text-6xl font-bold text-stone-300 group-hover:text-rose-600/20 transition-colors pointer-events-none">02</span>
+          <div class="space-y-1 sm:space-y-4 relative z-10">
+            <h3 class="font-serif text-xs sm:text-xl font-bold text-stone-900 group-hover:text-rose-600 transition-colors">Instant Logistics</h3>
+            <p class="text-[9px] sm:text-xs font-mono text-stone-600 leading-tight hidden sm:block">
+              Dedicated worldwide covered transport and rapid response support to deliver your machine safely anywhere, anytime.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative bg-stone-50 p-3 sm:p-8 rounded-xl sm:rounded-2xl border border-stone-200 hover:border-rose-600 transition-all duration-300 group shadow-sm min-w-[100px]">
+          <span class="absolute top-2 right-2 font-mono text-xs sm:text-6xl font-bold text-stone-300 group-hover:text-rose-600/20 transition-colors pointer-events-none">03</span>
+          <div class="space-y-1 sm:space-y-4 relative z-10">
+            <h3 class="font-serif text-xs sm:text-xl font-bold text-stone-900 group-hover:text-rose-600 transition-colors">24/7 VIP Concierge</h3>
+            <p class="text-[9px] sm:text-xs font-mono text-stone-600 leading-tight hidden sm:block">
+              Precision assistance from verified automotive engineers. Complete technical support for sales, track rental, and custom tuning.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 sm:gap-6 pt-2">
+        <div class="bg-rose-600 text-white p-3 sm:p-8 rounded-xl sm:rounded-2xl border border-rose-500 flex flex-col items-center text-center space-y-1.5 sm:space-y-4 shadow-xl">
+          <div class="p-1.5 sm:p-4 bg-white/10 rounded-full">
+            <i data-lucide="car" class="w-4 h-4 sm:w-8 sm:h-8 text-white"></i>
+          </div>
+          <h3 class="font-serif text-xs sm:text-2xl font-bold tracking-tight">Sales & Trade-In</h3>
+          <p class="text-[9px] sm:text-xs font-sans text-rose-100 leading-tight hidden sm:block">
+            Buy verified brand new supercars or sell your pre-owned vehicles with global valuation standards.
+          </p>
+          <a href="#inventory" class="pt-1 text-[8px] sm:text-xs font-mono font-bold uppercase tracking-wider underline hover:text-stone-900 transition-colors">Explore &rarr;</a>
+        </div>
+
+        <div class="bg-stone-900 text-white p-3 sm:p-8 rounded-xl sm:rounded-2xl border border-stone-800 flex flex-col items-center text-center space-y-1.5 sm:space-y-4 shadow-xl">
+          <div class="p-1.5 sm:p-4 bg-stone-800 rounded-full">
+            <i data-lucide="key-round" class="w-4 h-4 sm:w-8 sm:h-8 text-rose-500"></i>
+          </div>
+          <h3 class="font-serif text-xs sm:text-2xl font-bold tracking-tight">Luxury Rental</h3>
+          <p class="text-[9px] sm:text-xs font-mono text-stone-400 leading-tight hidden sm:block">
+            Experience high-octane driving with flexible short-term or track-day rental programs tailored for enthusiasts.
+          </p>
+          <a href="#inventory" class="pt-1 text-[8px] sm:text-xs font-mono text-rose-500 font-bold uppercase tracking-wider underline hover:text-white transition-colors">Rental &rarr;</a>
+        </div>
+
+        <div class="bg-stone-100 text-stone-900 p-3 sm:p-8 rounded-xl sm:rounded-2xl border border-stone-300 flex flex-col items-center text-center space-y-1.5 sm:space-y-4 shadow-xl">
+          <div class="p-1.5 sm:p-4 bg-stone-200 rounded-full">
+            <i data-lucide="wrench" class="w-4 h-4 sm:w-8 sm:h-8 text-rose-600"></i>
+          </div>
+          <h3 class="font-serif text-xs sm:text-2xl font-bold tracking-tight">Atelier Service</h3>
+          <p class="text-[9px] sm:text-xs font-mono text-stone-600 leading-tight hidden sm:block">
+            OEM performance maintenance, ECU remapping, carbon body-kit installations, and complete vehicle diagnostics.
+          </p>
+          <a href="#shop" class="pt-1 text-[8px] sm:text-xs font-mono text-rose-600 font-bold uppercase tracking-wider underline hover:text-stone-900 transition-colors">Service &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. ABOUT US SECTION -->
+  <section id="about" class="py-12 sm:py-32 px-4 sm:px-6 border-b border-stone-200 bg-stone-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-6 sm:gap-12 items-center relative z-10">
+      
+      <!-- Left Column -->
+      <div class="lg:col-span-6 relative">
+        <div class="relative rounded-2xl overflow-hidden border border-stone-200/80 shadow-xl group">
+          <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=80" alt="Din Auto Workshop" class="w-full h-[220px] sm:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="absolute -bottom-4 right-2 sm:bottom-6 sm:-right-6 bg-white/90 backdrop-blur-md p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-stone-200 shadow-xl flex items-center space-x-2 sm:space-x-4">
+          <div class="p-1.5 sm:p-3 bg-rose-600/10 rounded-lg sm:rounded-xl">
+            <i data-lucide="award" class="w-5 h-5 sm:w-8 sm:h-8 text-rose-600"></i>
+          </div>
+          <div>
+            <p class="font-serif text-sm sm:text-2xl font-bold text-stone-900">28+ Years</p>
+            <p class="text-[8px] sm:text-[10px] font-mono text-stone-500 uppercase tracking-widest">Racing Heritage</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="lg:col-span-6 space-y-4 sm:space-y-6 pt-4 lg:pt-0">
+        <span class="inline-block text-[10px] sm:text-xs font-mono text-rose-600 uppercase tracking-widest bg-rose-50 border border-rose-200/60 px-3 py-1 rounded-full">// The Legacy of Din Auto</span>
+        <h2 class="font-serif text-2xl sm:text-5xl font-bold text-stone-900 leading-tight">Redefining High-Performance Engineering</h2>
+        <p class="text-stone-600 text-xs sm:text-base leading-relaxed font-light">
+          Din Auto was founded in Stuttgart as an exclusive tuning workshop for GT3 racing teams, now evolved into a global luxury vehicle dealership.
+        </p>
+
+        <div class="grid grid-cols-2 gap-3 sm:gap-6 pt-2 font-mono text-xs border-t border-stone-200/80">
+          <div class="bg-white p-3 sm:p-4 rounded-xl border border-stone-200/60 shadow-sm">
+            <span class="text-[9px] sm:text-xs text-stone-500 uppercase tracking-wider">Vehicles Sold</span>
+            <p class="text-stone-900 text-xl sm:text-3xl font-serif font-bold mt-1 text-rose-600">2,850+</p>
+          </div>
+          <div class="bg-white p-3 sm:p-4 rounded-xl border border-stone-200/60 shadow-sm">
+            <span class="text-[9px] sm:text-xs text-stone-500 uppercase tracking-wider">Parts Delivered</span>
+            <p class="text-stone-900 text-xl sm:text-3xl font-serif font-bold mt-1 text-rose-600">98,000+</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. CAR SHOWROOM SECTION -->
+  <section id="inventory" class="py-12 sm:py-32 px-2 sm:px-6 border-b border-stone-200 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-16 gap-2 sm:gap-6 px-2 sm:px-0">
+        <div>
+          <span class="text-xs font-mono text-rose-600 tracking-widest uppercase">// Showroom Fleet</span>
+          <h2 class="font-serif text-2xl sm:text-4xl font-bold text-stone-900 mt-1 sm:mt-2">Vehicles For Sale & Track Lease</h2>
+        </div>
+      </div>
+
+      <!-- BRAND LOGOS -->
+      <div class="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen py-6 sm:py-12 bg-stone-100 border-b border-stone-200 overflow-hidden mb-8 sm:mb-16">
+        <div class="w-full text-center mb-4 sm:mb-8">
+          <span class="text-[9px] sm:text-[11px] font-mono text-stone-500 uppercase tracking-widest">// AUTHORIZED DEALER & PARTNERS</span>
+        </div>
+
+        <div class="relative w-full overflow-hidden flex">
+          <div class="animate-marquee flex items-center gap-8 sm:gap-24 opacity-80 hover:opacity-100 transition-opacity">
+            <img src="https://simpleicons.org/icons/porsche.svg" alt="Porsche" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/bmw.svg" alt="BMW" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/ferrari.svg" alt="Ferrari" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/audi.svg" alt="Audi" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/mercedes.svg" alt="Mercedes Benz" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/lamborghini.svg" alt="Lamborghini" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/mclaren.svg" alt="McLaren" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/astonmartin.svg" alt="Aston Martin" class="h-6 sm:h-14 w-auto object-contain">
+
+            <!-- Loop Copy -->
+            <img src="https://simpleicons.org/icons/porsche.svg" alt="Porsche" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/bmw.svg" alt="BMW" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/ferrari.svg" alt="Ferrari" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/audi.svg" alt="Audi" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/mercedes.svg" alt="Mercedes Benz" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/lamborghini.svg" alt="Lamborghini" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/mclaren.svg" alt="McLaren" class="h-6 sm:h-14 w-auto object-contain">
+            <img src="https://simpleicons.org/icons/astonmartin.svg" alt="Aston Martin" class="h-6 sm:h-14 w-auto object-contain">
+          </div>
+        </div>
+      </div>
+
+      <!-- CARS GRID WITH 3 COLUMNS ON MOBILE -->
+      <div id="cars-grid" class="grid grid-cols-3 lg:grid-cols-3 gap-1.5 sm:gap-8">
+        <!-- JS Loaded Cars -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. AUTO PARTS SHOP SECTION -->
+  <section id="shop" class="py-8 sm:py-32 px-2 sm:px-6 border-b border-stone-200 bg-stone-50">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header & Scrollable Filter Buttons -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-16 gap-3 sm:gap-6">
+        <div>
+          <span class="text-[10px] sm:text-xs font-mono text-rose-600 tracking-widest uppercase block">// High Performance Parts Atelier</span>
+          <h2 class="font-serif text-xl sm:text-4xl font-bold text-stone-900 mt-1">Authentic OEM & Performance Car Parts</h2>
+        </div>
+
+        <!-- Scrollable Horizontal Filter Buttons on Mobile -->
+        <div class="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-xs font-mono overflow-x-auto pb-2 scrollbar-none snap-x">
+          <button class="filter-btn active whitespace-nowrap snap-start shrink-0" data-filter="all">ALL PARTS</button>
+          <button class="filter-btn whitespace-nowrap snap-start shrink-0" data-filter="braking">BRAKES</button>
+          <button class="filter-btn whitespace-nowrap snap-start shrink-0" data-filter="powertrain">TURBO</button>
+          <button class="filter-btn whitespace-nowrap snap-start shrink-0" data-filter="suspension">SUSPENSION</button>
+          <button class="filter-btn whitespace-nowrap snap-start shrink-0" data-filter="wheels">WHEELS</button>
+        </div>
+      </div>
+
+      <!-- Responsive Product Grid -->
+      <div id="product-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8">
+        <!-- JS Loaded Products -->
+      </div>
+    </div>
+  </section>
+
+ <!-- 7. VIN VERIFICATION SECTION -->
+  <section id="engineering" class="py-12 sm:py-32 px-4 sm:px-6 border-b border-stone-200 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 sm:gap-12 items-center relative z-10">
+      <div class="lg:col-span-6 space-y-4 sm:space-y-6">
+        <span class="inline-block text-[10px] sm:text-xs font-mono text-rose-600 uppercase tracking-widest bg-rose-50 border border-rose-200/80 px-3 py-1 rounded-full">// Precision Matching</span>
+        <h2 class="font-serif text-2xl sm:text-5xl font-bold text-stone-900 leading-tight">Zero-Tolerance VIN Compatibility</h2>
+        <p class="text-stone-600 text-xs sm:text-base leading-relaxed font-light">
+          Avoid fitment mismatches. Cross-reference your car's unique 17-digit Chassis Identification Code against our technical databases.
+        </p>
+
+        <div class="space-y-3 pt-2 bg-white/70 backdrop-blur-md p-4 sm:p-6 rounded-2xl border border-stone-200 shadow-lg">
+          <label class="text-[10px] font-mono text-stone-500 uppercase tracking-widest block font-semibold">System Scanner</label>
+          <div class="flex flex-col sm:flex-row gap-2.5">
+            <input type="text" id="vin-input" placeholder="ENTER 17-DIGIT VIN NUMBER" maxlength="17" class="flex-1 bg-white border border-stone-300 p-3 text-xs font-mono text-stone-900 uppercase focus:border-rose-600 outline-none rounded-xl">
+            <button id="vin-check-btn" class="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 text-xs font-mono font-bold uppercase rounded-xl transition-all">
+              Verify
+            </button>
+          </div>
+          <div id="vin-result" class="text-xs font-mono min-h-[18px] text-stone-600"></div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="relative rounded-2xl overflow-hidden border border-stone-200 shadow-xl group">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Chassis Verification" class="w-full h-[220px] sm:h-[420px] object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. AUTOMOTIVE JOURNAL (BLOG) -->
+  <section id="blog" class="py-12 sm:py-32 px-4 sm:px-6 border-b border-stone-200 bg-stone-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-8 sm:mb-16">
+        <span class="text-xs font-mono text-rose-600 tracking-widest uppercase">// Technical Articles</span>
+        <h2 class="font-serif text-2xl sm:text-4xl font-bold text-stone-900 mt-1">Automotive Journal</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 font-mono">
+        <article class="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=600&q=80" alt="Aerodynamics" class="w-full h-40 sm:h-48 object-cover">
+          <div class="p-4 sm:p-6 space-y-2">
+            <span class="text-[10px] text-rose-600 font-bold uppercase">Track Engineering</span>
+            <h3 class="font-serif text-base sm:text-lg text-stone-900 font-bold">Downforce Optimization</h3>
+            <p class="text-xs text-stone-600 font-sans font-light">Analyzing cornering stability adjustments with active rear wings.</p>
+          </div>
+        </article>
+
+        <article class="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=600&q=80" alt="Brakes" class="w-full h-40 sm:h-48 object-cover">
+          <div class="p-4 sm:p-6 space-y-2">
+            <span class="text-[10px] text-rose-600 font-bold uppercase">Hardware Insights</span>
+            <h3 class="font-serif text-base sm:text-lg text-stone-900 font-bold">Carbon-Ceramic Rotors</h3>
+            <p class="text-xs text-stone-600 font-sans font-light">Thermal dissipation differences under 1,000°C extreme braking conditions.</p>
+          </div>
+        </article>
+
+        <article class="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="Turbos" class="w-full h-40 sm:h-48 object-cover">
+          <div class="p-4 sm:p-6 space-y-2">
+            <span class="text-[10px] text-rose-600 font-bold uppercase">Powertrain</span>
+            <h3 class="font-serif text-base sm:text-lg text-stone-900 font-bold">Twin-Scroll Turbos</h3>
+            <p class="text-xs text-stone-600 font-sans font-light">Eradicating throttle lag through optimized exhaust manifold pulse design.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER -->
+  <footer class="bg-stone-900 text-stone-300 border-t border-stone-800 py-10 px-6 sm:px-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 pb-10 border-b border-stone-800">
+      
+      <!-- Brand & About -->
+      <div class="col-span-2 lg:col-span-1 space-y-3 py-2">
+        <a href="#home" class="font-serif italic text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-1.5">
+          <i data-lucide="car" class="w-5 h-5 text-rose-600 not-italic"></i> Din Auto<span class="text-rose-600 font-sans not-italic text-[10px] align-top">®</span>
+        </a>
+        <p class="text-xs text-stone-400 leading-relaxed font-light">
+          Premium automotive services, rentals, and genuine OEM spare hardware. Quality and reliability at your service.
+        </p>
+      </div>
+
+      <!-- Quick Navigation Links -->
+      <div class="space-y-3 py-2 font-mono text-xs uppercase tracking-wider">
+        <h4 class="text-white font-bold mb-3 font-sans uppercase text-xs sm:text-sm text-rose-500">Quick Links</h4>
+        <ul class="space-y-2 text-stone-400">
+          <li><a href="#home" class="hover:text-rose-500 transition-colors">Home</a></li>
+          <li><a href="About/about.html" class="hover:text-rose-500 transition-colors">About Us</a></li>
+          <li><a href="services/services.html" class="hover:text-rose-600 transition-colors">Services</a></li>
+          <li><a href="blog/blog.html" class="hover:text-rose-600 transition-colors">Blog</a></li>
+          <li><a href="contact/contact.html" class="hover:text-rose-500 transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Direct Contact -->
+      <div class="space-y-3 py-2 font-sans text-xs">
+        <h4 class="text-white font-bold mb-3 uppercase text-xs sm:text-sm text-rose-500">Direct Contact</h4>
+        <ul class="space-y-2.5">
+          <li>
+            <a href="tel:+15156026843" class="flex items-center gap-2 text-stone-300 hover:text-rose-500 transition-colors group">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-rose-500 shrink-0"></i>
+              <span class="truncate">[+1] 515-602-6843</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/15156026843" target="_blank" class="flex items-center gap-2 text-stone-300 hover:text-emerald-400 transition-colors group">
+              <i data-lucide="message-square" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
+              <span>WhatsApp</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:kevineevans@rhyta.com" class="flex items-center gap-2 text-stone-300 hover:text-rose-500 transition-colors group">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-rose-500 shrink-0"></i>
+              <span class="truncate">Email Us</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Address & Opening Hours -->
+      <div class="col-span-2 lg:col-span-1 space-y-3 py-2 text-xs">
+        <h4 class="text-white font-bold mb-3 uppercase text-xs sm:text-sm text-rose-500">Atelier Location</h4>
+        <p class="text-stone-400 flex items-start gap-2 leading-relaxed">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rose-500 shrink-0 mt-0.5"></i>
+          3865 Nutters Barn Lane Clarion, IA 50525
+        </p>
+        <p class="text-stone-400 flex items-center gap-2 pt-1">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-rose-500 shrink-0"></i>
+          Mon - Sat: 10:00 AM - 5:00 PM
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Sub-footer Bottom Bar -->
+    <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] sm:text-xs font-mono text-stone-500 text-center sm:text-left">
+      <div>Din Auto Automotive Group • Sales • Rental</div>
+      <div>&copy; 2026 DIN AUTO. ALL RIGHTS RESERVED.</div>
+    </div>
+  </footer>
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Main Custom Script -->
+  <script src="script.js"></script>
+</body>
+</html>
