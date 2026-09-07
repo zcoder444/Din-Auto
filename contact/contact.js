@@ -4,6 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
     lucide.createIcons();
   }
 
+  // Mobile Navigation Menu Toggle
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+
   // Handle Contact Form Submission
   const contactForm = document.getElementById("contact-page-form");
   const responseMsg = document.getElementById("form-response-msg");
