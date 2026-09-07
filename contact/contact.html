@@ -38,7 +38,7 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-8 text-xs tracking-widest font-mono text-stone-600 uppercase">
-        <a href="../index.html#home" class="hover:text-rose-600 transition-colors">Home</a>
+        <a href="../index.html" class="hover:text-rose-600 transition-colors">Home</a>
         <a href="../about/about.html" class="hover:text-rose-600 transition-colors">About Us</a>
         <a href="../services/services.html" class="hover:text-rose-600 transition-colors">Services</a>
         <a href="../blog/blog.html" class="hover:text-rose-600 transition-colors">Blog</a>
@@ -51,12 +51,12 @@
           <span class="text-[11px] sm:text-xs font-mono text-stone-900 uppercase tracking-wider">Store</span>
         </a>
 
-        <!-- Mobile Hamburger Button -->
+        <!-- Dark Mode & Mobile Hamburger Button -->
         <button type="button" data-theme-toggle aria-label="Toggle dark mode" class="theme-toggle-btn p-2 sm:p-2.5 rounded-full border border-stone-300 bg-stone-100 hover:border-stone-400 transition-colors">
-        <i data-lucide="moon" class="theme-toggle-icon-moon w-3.5 h-3.5 sm:w-4 sm:h-4 text-stone-700"></i>
-        <i data-lucide="sun" class="theme-toggle-icon-sun w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500"></i>
-      </button>
-      <button id="menu-btn" class="md:hidden p-2 text-stone-800 hover:text-rose-600 focus:outline-none" aria-label="Toggle Menu">
+          <i data-lucide="moon" class="theme-toggle-icon-moon w-3.5 h-3.5 sm:w-4 sm:h-4 text-stone-700"></i>
+          <i data-lucide="sun" class="theme-toggle-icon-sun w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500"></i>
+        </button>
+        <button id="menu-btn" class="md:hidden p-2 text-stone-800 hover:text-rose-600 focus:outline-none" aria-label="Toggle Menu">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
@@ -64,10 +64,10 @@
 
     <!-- Mobile Dropdown Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-6 py-4 space-y-3 font-mono text-xs uppercase tracking-wider text-stone-700">
-      <a href="../index.html#home" class="block py-1 hover:text-rose-600">Home</a>
-      <a href="../About/about.html" class="block py-1 hover:text-rose-600">About Us</a>
-      <a href="../Services/services.html" class="block py-1 hover:text-rose-600">Services</a>
-      <a href="../Blog/blog.html" class="block py-1 hover:text-rose-600">Blog</a>
+      <a href="../index.html" class="block py-1 hover:text-rose-600">Home</a>
+      <a href="../about/about.html" class="block py-1 hover:text-rose-600">About Us</a>
+      <a href="../services/services.html" class="block py-1 hover:text-rose-600">Services</a>
+      <a href="../blog/blog.html" class="block py-1 hover:text-rose-600">Blog</a>
       <a href="contact.html" class="block py-1 text-rose-600 font-bold">Contact</a>
     </div>
   </header>
@@ -130,7 +130,7 @@
           </div>
         </div>
 
-        <!-- Right Column: Interactive Form (Fully Mobile Responsive) -->
+        <!-- Right Column: Interactive Form -->
         <div class="lg:col-span-5 bg-rose-600 p-5 sm:p-8 lg:p-12 flex flex-col justify-center relative z-10">
           <div class="mb-5 sm:mb-8">
             <span class="inline-block text-[10px] sm:text-xs font-mono text-rose-200 uppercase tracking-widest bg-white/10 border border-white/20 px-3 py-1 rounded-full mb-2">// We respond within 2 hours</span>
@@ -189,7 +189,7 @@
 
   <!-- FOOTER -->
   <footer class="bg-stone-900 text-stone-300 border-t border-stone-800 pt-16 pb-12 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-stone-800">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 pb-12 border-b border-stone-800">
       
       <!-- Column 1: Brand Info -->
       <div class="space-y-4 col-span-2 sm:col-span-1">
@@ -237,7 +237,7 @@
       </div>
 
       <!-- Column 4: Location -->
-      <div class="space-y-3 text-xs">
+      <div class="space-y-3 text-xs col-span-2 sm:col-span-1">
         <h4 class="text-white font-bold mb-4 uppercase">Atelier Location</h4>
         <p class="text-stone-400 flex items-start gap-2 leading-relaxed">
           <i data-lucide="map-pin" class="w-4 h-4 text-rose-500 shrink-0 mt-0.5"></i>
