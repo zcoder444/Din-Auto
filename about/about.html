@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('din-auto-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'dark' || (!saved && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us // Din Auto</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="about.css">
+</head>
+<body class="bg-white text-stone-900 antialiased selection:bg-rose-600 selection:text-white overflow-x-hidden">
+
+  <!-- Main Navigation -->
+  <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-5 flex items-center justify-between">
+      <a href="../index.html#home" class="font-serif italic text-xl sm:text-2xl font-black text-stone-900 tracking-tight flex items-center gap-1.5">
+        <i data-lucide="car" class="w-5 h-5 sm:w-6 sm:h-6 text-rose-600 not-italic"></i> Din Auto<span class="text-rose-600 font-sans not-italic text-[10px] sm:text-xs align-top">®</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs tracking-widest font-mono text-stone-600 uppercase">
+        <a href="../index.html#home" class="hover:text-rose-600 transition-colors">Home</a>
+        <a href="about.html" class="text-rose-600 font-bold border-b-2 border-rose-600 pb-1">About Us</a>
+        <a href="../services/services.html" class="hover:text-rose-600 transition-colors">Services</a>
+        <a href="../blog/blog.html" class="hover:text-rose-600 transition-colors">Blog</a>
+        <a href="../contact/contact.html" class="hover:text-rose-600 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <a href="../index.html#shop" class="flex items-center space-x-2 border border-stone-300 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-stone-100 hover:border-stone-400 transition-colors">
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600"></i>
+          <span class="text-[10px] sm:text-xs font-mono text-stone-900 uppercase tracking-wider">Store</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" data-theme-toggle aria-label="Toggle dark mode" class="theme-toggle-btn p-2 sm:p-2.5 rounded-full border border-stone-300 bg-stone-100 hover:border-stone-400 transition-colors">
+        <i data-lucide="moon" class="theme-toggle-icon-moon w-3.5 h-3.5 sm:w-4 sm:h-4 text-stone-700"></i>
+        <i data-lucide="sun" class="theme-toggle-icon-sun w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500"></i>
+      </button>
+      <button id="menu-btn" class="md:hidden text-stone-900 p-1.5 rounded-lg focus:outline-none" aria-label="Toggle Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-white px-6 py-3 space-y-2 font-mono text-xs uppercase tracking-wider">
+      <a href="../index.html#home" class="block py-1.5 text-stone-700 hover:text-rose-600">Home</a>
+      <a href="about.html" class="block py-1.5 text-rose-600 font-bold">About Us</a>
+      <a href="../services/services.html" class="block py-1.5 text-stone-700 hover:text-rose-600">Services</a>
+      <a href="../blog/blog.html" class="block py-1.5 text-stone-700 hover:text-rose-600">Blog</a>
+      <a href="../contact/contact.html" class="block py-1.5 text-stone-700 hover:text-rose-600">Contact</a>
+    </div>
+  </header>
+
+  <main class="pt-20 sm:pt-28 pb-16 space-y-6 sm:space-y-10">
+
+    <!-- 1. RIGHT: OWNER PIC -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-end">
+      <div class="w-[85%] sm:w-full lg:w-7/12">
+        <div class="relative rounded-xl sm:rounded-2xl overflow-hidden bg-stone-100 p-1">
+          <div class="rounded-lg sm:rounded-xl overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=80" alt="Owner" class="w-full h-44 sm:h-72 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4">
+              <h3 class="font-serif text-sm sm:text-xl font-bold text-white">Muhammad Umar Farooque</h3>
+              <p class="text-[9px] sm:text-xs font-mono text-rose-400 mt-0.5 uppercase tracking-wider">Founder & CEO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. LEFT: COMPANY & OWNER ABOUT -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-start">
+      <div class="w-[90%] sm:w-full lg:w-8/12 bg-stone-50 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl space-y-3">
+        <div>
+          <span class="text-[9px] sm:text-xs font-mono text-rose-600 uppercase tracking-widest bg-rose-50 px-2 py-0.5 rounded-full inline-block">// About Us</span>
+          <h2 class="font-serif text-base sm:text-2xl font-bold text-stone-900 mt-1">Founder Journey & Company Vision</h2>
+        </div>
+        
+        <p class="text-stone-600 text-xs leading-relaxed font-light">
+          Founded by Muhammad Umar Farooque in 2012, Din Auto transformed from a local performance garage into a premier international automotive group specializing in luxury rentals, imports, and genuine OEM hardware.
+        </p>
+
+        <div class="bg-white p-2.5 sm:p-3.5 rounded-lg space-y-1">
+          <h3 class="text-xs font-serif font-bold text-rose-600 flex items-center gap-1.5">
+            <i data-lucide="briefcase" class="w-3.5 h-3.5 shrink-0"></i> Business Model & Process
+          </h3>
+          <p class="text-stone-600 text-[11px] sm:text-xs leading-relaxed font-light">
+            We operate on Direct Luxury Imports, Executive Fleet Rentals, and Certified Hardware Sourcing.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-1.5 text-[10px] font-mono pt-1">
+          <div class="p-1.5 bg-white rounded"><span class="text-rose-600 font-bold">01.</span> Consultation</div>
+          <div class="p-1.5 bg-white rounded"><span class="text-rose-600 font-bold">02.</span> OEM Sourcing</div>
+          <div class="p-1.5 bg-white rounded"><span class="text-rose-600 font-bold">03.</span> Precision Tuning</div>
+          <div class="p-1.5 bg-white rounded"><span class="text-rose-600 font-bold">04.</span> Delivery</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. RIGHT: CERTIFICATE, ACHIEVEMENTS & PRIZES -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-end">
+      <div class="w-[90%] sm:w-full lg:w-8/12 bg-stone-50 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl space-y-3">
+        <div>
+          <span class="text-[9px] sm:text-xs font-mono text-rose-600 uppercase tracking-widest">// Recognition</span>
+          <h2 class="font-serif text-base sm:text-2xl font-bold text-stone-900 mt-0.5">Certificates & Achievements</h2>
+        </div>
+
+        <div class="space-y-1.5 font-mono text-[10px] sm:text-xs">
+          <div class="flex items-center gap-2 p-2 bg-white rounded-md">
+            <i data-lucide="award" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
+            <span>Global Automotive Excellence Award 2024</span>
+          </div>
+          <div class="flex items-center gap-2 p-2 bg-white rounded-md">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
+            <span>Certified Master OEM Partner (Europe)</span>
+          </div>
+        </div>
+
+        <!-- Certificates & Prizes Images -->
+        <div class="grid grid-cols-2 gap-2 pt-1">
+          <div class="p-1.5 bg-white rounded-lg text-center">
+            <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&w=600&q=80" alt="Cert 1" class="w-full h-16 sm:h-28 object-cover rounded mb-1">
+            <span class="text-[9px] font-bold block text-stone-800 truncate">OEM Certification</span>
+          </div>
+          <div class="p-1.5 bg-white rounded-lg text-center">
+            <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=600&q=80" alt="Prize 1" class="w-full h-16 sm:h-28 object-cover rounded mb-1">
+            <span class="text-[9px] font-bold block text-stone-800 truncate">Top Fleet Award</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LEFT: PROJECTS -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-start">
+      <div class="w-[90%] sm:w-full lg:w-8/12 bg-stone-50 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl space-y-3">
+        <div>
+          <span class="text-[9px] sm:text-xs font-mono text-rose-600 uppercase tracking-widest">// Portfolio</span>
+          <h2 class="font-serif text-base sm:text-2xl font-bold text-stone-900 mt-0.5">Signature Projects</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div class="p-1 bg-white rounded-lg">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Project 1" class="w-full h-20 sm:h-32 object-cover rounded">
+          </div>
+          <div class="p-1 bg-white rounded-lg">
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Project 2" class="w-full h-20 sm:h-32 object-cover rounded">
+          </div>
+        </div>
+
+        <div class="space-y-1.5 text-xs">
+          <div class="p-2 bg-white rounded-lg">
+            <h4 class="font-serif font-bold text-stone-900 text-[11px] sm:text-xs">Project Apex: Carbon-Ceramic Retrofit</h4>
+            <p class="text-[9px] sm:text-[10px] text-stone-500 mt-0.5">Custom aerodynamic kit & race braking system.</p>
+          </div>
+          <div class="p-2 bg-white rounded-lg">
+            <h4 class="font-serif font-bold text-stone-900 text-[11px] sm:text-xs">VIP Armored Fleet Project</h4>
+            <p class="text-[9px] sm:text-[10px] text-stone-500 mt-0.5">Supplied 30 luxury armored vehicles with ongoing support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#121212] text-stone-300 border-t border-stone-800 pt-8 pb-32 px-5 w-full block">
+    <div class="max-w-7xl mx-auto space-y-7">
+      
+      <!-- Brand Logo & Bio -->
+      <div class="space-y-2">
+        <a href="../index.html#home" class="font-serif italic text-xl font-bold text-white tracking-tight flex items-center gap-1.5">
+          <i data-lucide="car" class="w-5 h-5 text-rose-600 not-italic"></i> Din Auto<span class="text-rose-600 font-sans not-italic text-[10px] align-top">®</span>
+        </a>
+        <p class="text-[11px] text-stone-400 leading-relaxed font-light">
+          Premium automotive services, rentals, and genuine OEM spare hardware. Quality and reliability at your service.
+        </p>
+      </div>
+
+      <!-- Quick Links & Direct Contact Side by Side -->
+      <div class="grid grid-cols-2 gap-4 pt-1">
+        
+        <!-- Quick Links -->
+        <div class="space-y-3">
+          <h4 class="text-[11px] font-bold font-sans uppercase tracking-widest text-white">QUICK LINKS</h4>
+          <ul class="space-y-2 font-mono text-[10px] uppercase tracking-wider text-stone-400">
+            <li><a href="../index.html#home" class="hover:text-rose-500 transition-colors">HOME</a></li>
+            <li><a href="about.html" class="hover:text-rose-500 transition-colors">ABOUT US</a></li>
+            <li><a href="../services/services.html" class="hover:text-rose-500 transition-colors">SERVICES</a></li>
+            <li><a href="../blog/blog.html" class="hover:text-rose-500 transition-colors">BLOG</a></li>
+            <li><a href="../contact/contact.html" class="hover:text-rose-500 transition-colors">CONTACT US</a></li>
+          </ul>
+        </div>
+
+        <!-- Direct Contact -->
+        <div class="space-y-3">
+          <h4 class="text-[11px] font-bold font-sans uppercase tracking-widest text-white">DIRECT CONTACT</h4>
+          <ul class="space-y-2.5 text-stone-400">
+            <li>
+              <a href="tel:+15156026843" class="flex items-center gap-2 hover:text-rose-500 transition-colors">
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
+                <span class="text-[10px] font-mono">[+1] 515-602-6843</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/15156026843" target="_blank" class="flex items-center gap-2 hover:text-emerald-400 transition-colors">
+                <i data-lucide="message-square" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
+                <span class="text-[10px] font-mono">WhatsApp</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:kevineevans@rhyta.com" class="flex items-center gap-2 hover:text-rose-500 transition-colors">
+                <i data-lucide="mail" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
+                <span class="text-[10px] font-mono">Email Us</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Atelier Location Section -->
+      <div class="space-y-3 pt-2">
+        <h4 class="text-[11px] font-bold font-sans uppercase tracking-widest text-white">ATELIER LOCATION</h4>
+        <div class="space-y-2 text-[11px] text-stone-400">
+          <p class="flex items-center gap-2.5">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
+            <span>3865 Nutters Barn Lane Clarion, IA 50525</span>
+          </p>
+          <p class="flex items-center gap-2.5">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
+            <span>Mon - Sat: 10:00 AM - 5:00 PM</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="about.js"></script>
+  <script>
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
