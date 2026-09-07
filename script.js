@@ -61,25 +61,45 @@ const heroCars = [
     title: 'Porsche 911 GT3 RS',
     tag: 'FEATURED HYPERCAR',
     price: '$224,500',
-    img: 'https://pngimg.com/uploads/porsche/porsche_PNG10622.png'
+    img: 'https://pngimg.com/uploads/porsche/porsche_PNG10622.png',
+    bg: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1920&q=80',
+    tagline: '// Premier Automotive Superstore & Atelier',
+    headlineMain: 'Uncompromising',
+    headlineSub: 'Power & Precision.',
+    description: 'Buy luxury supercars, rent high-performance vehicles for the track, or upgrade your machine with authentic aerospace-grade OEM spare parts.'
   },
   {
     title: 'Ferrari F8 Tributo',
     tag: 'ITALIAN PERFORMANCE',
     price: '$280,000',
-    img: 'https://pngimg.com/uploads/ferrari/ferrari_PNG10678.png'
+    img: 'https://pngimg.com/uploads/ferrari/ferrari_PNG10678.png',
+    bg: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1920&q=80',
+    tagline: '// Italian Engineering, Pure Emotion',
+    headlineMain: 'Relentless',
+    headlineSub: 'Speed & Elegance.',
+    description: 'Twin-turbo V8 dominance wrapped in iconic Italian design — engineered for uncompromising track performance and everyday theatre.'
   },
   {
     title: 'Audi R8 V10 Performance',
     tag: 'SUPERCAR CLASS',
     price: '$158,600',
-    img: 'https://pngimg.com/uploads/audi/audi_PNG1737.png'
+    img: 'https://pngimg.com/uploads/audi/audi_PNG1737.png',
+    bg: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80',
+    tagline: '// German Precision, Quattro Dominance',
+    headlineMain: 'Engineered',
+    headlineSub: 'For Perfection.',
+    description: 'A naturally-aspirated V10 heart wrapped in Quattro all-wheel-drive confidence — precision engineering at every single corner.'
   },
   {
     title: 'Toyota Supra GR',
     tag: 'SPORT COUPE',
     price: '$58,500',
-    img: 'https://pngimg.com/uploads/toyota/toyota_PNG1916.png'
+    img: 'https://pngimg.com/uploads/toyota/toyota_PNG1916.png',
+    bg: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1920&q=80',
+    tagline: '// Legendary Heritage, Reborn',
+    headlineMain: 'Pure',
+    headlineSub: 'Driving Emotion.',
+    description: 'The iconic Supra returns with turbocharged inline-six power and razor-sharp handling built for true enthusiasts.'
   }
 ];
 
@@ -89,11 +109,46 @@ const carTitleEl = document.getElementById('hero-car-title');
 const carTagEl = document.getElementById('hero-car-tag');
 const carPriceEl = document.getElementById('hero-car-price');
 
+// Left-column text block (tagline, headline, description)
+const heroTextBlock = document.getElementById('hero-text-block');
+const heroTaglineEl = document.getElementById('hero-tagline');
+const heroHeadlineMainEl = document.getElementById('hero-headline-main');
+const heroHeadlineSubEl = document.getElementById('hero-headline-sub');
+const heroDescriptionEl = document.getElementById('hero-description');
+
+// Hero background crossfade layers (two stacked divs, alternately faded in/out)
+const heroBgA = document.getElementById('hero-bg-a');
+const heroBgB = document.getElementById('hero-bg-b');
+let heroBgShowingA = true;
+
+function updateHeroBackground(bgUrl) {
+  if (!heroBgA || !heroBgB || !bgUrl) return;
+
+  const incoming = heroBgShowingA ? heroBgB : heroBgA;
+  const outgoing = heroBgShowingA ? heroBgA : heroBgB;
+
+  incoming.style.backgroundImage = `url('${bgUrl}')`;
+  incoming.style.opacity = '1';
+  outgoing.style.opacity = '0';
+
+  heroBgShowingA = !heroBgShowingA;
+}
+
+function updateHeroText(car) {
+  if (heroTaglineEl) heroTaglineEl.innerText = car.tagline;
+  if (heroHeadlineMainEl) heroHeadlineMainEl.innerText = car.headlineMain;
+  if (heroHeadlineSubEl) heroHeadlineSubEl.innerText = car.headlineSub;
+  if (heroDescriptionEl) heroDescriptionEl.innerText = car.description;
+}
+
 if (carImgEl) {
   setInterval(() => {
     carImgEl.style.transition = 'all 0.4s ease-in';
     carImgEl.style.transform = 'translateX(-100px)';
     carImgEl.style.opacity = '0';
+
+    // Fade out the left-side text block at the same time
+    if (heroTextBlock) heroTextBlock.style.opacity = '0';
 
     setTimeout(() => {
       currentCarIndex = (currentCarIndex + 1) % heroCars.length;
@@ -103,6 +158,13 @@ if (carImgEl) {
       if (carTitleEl) carTitleEl.innerText = nextCar.title;
       if (carTagEl) carTagEl.innerText = nextCar.tag;
       if (carPriceEl) carPriceEl.innerText = nextCar.price;
+
+      // Crossfade the hero section background in sync with the car change
+      updateHeroBackground(nextCar.bg);
+
+      // Swap the left-side text while it's invisible, then fade it back in
+      updateHeroText(nextCar);
+      if (heroTextBlock) heroTextBlock.style.opacity = '1';
 
       carImgEl.style.transition = 'none';
       carImgEl.style.transform = 'translateX(100px)';
