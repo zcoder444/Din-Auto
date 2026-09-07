@@ -185,79 +185,80 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#121212] text-stone-300 border-t border-stone-800 pt-8 pb-32 px-5 w-full block">
-    <div class="max-w-7xl mx-auto space-y-7">
+  <!-- ABOUT PAGE FOOTER -->
+<footer class="bg-stone-900 text-stone-300 pt-12 sm:pt-16 pb-8 border-t border-stone-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    
+    <!-- Top Grid Layout: Mobile 2 Col, Laptop/Desktop 4 Col -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 pb-10 sm:pb-12 border-b border-stone-800 text-left">
       
-      <!-- Brand Logo & Bio -->
-      <div class="space-y-2">
-        <a href="../index.html#home" class="font-serif italic text-xl font-bold text-white tracking-tight flex items-center gap-1.5">
-          <i data-lucide="car" class="w-5 h-5 text-rose-600 not-italic"></i> Din Auto<span class="text-rose-600 font-sans not-italic text-[10px] align-top">®</span>
-        </a>
-        <p class="text-[11px] text-stone-400 leading-relaxed font-light">
+      <!-- Col 1: Brand Info -->
+      <div class="col-span-2 sm:col-span-1 space-y-3 sm:space-y-4">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="car" class="w-6 h-6 text-rose-600"></i>
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white">Din Auto <span class="text-xs font-sans align-top text-rose-600">®</span></span>
+        </div>
+        <p class="text-xs text-stone-400 leading-relaxed max-w-sm">
           Premium automotive services, rentals, and genuine OEM spare hardware. Quality and reliability at your service.
         </p>
       </div>
 
-      <!-- Quick Links & Direct Contact Side by Side -->
-      <div class="grid grid-cols-2 gap-4 pt-1">
-        
-        <!-- Quick Links -->
-        <div class="space-y-3">
-          <h4 class="text-[11px] font-bold font-sans uppercase tracking-widest text-white">QUICK LINKS</h4>
-          <ul class="space-y-2 font-mono text-[10px] uppercase tracking-wider text-stone-400">
-            <li><a href="../index.html#home" class="hover:text-rose-500 transition-colors">HOME</a></li>
-            <li><a href="about.html" class="hover:text-rose-500 transition-colors">ABOUT US</a></li>
-            <li><a href="../services/services.html" class="hover:text-rose-500 transition-colors">SERVICES</a></li>
-            <li><a href="../blog/blog.html" class="hover:text-rose-500 transition-colors">BLOG</a></li>
-            <li><a href="../contact/contact.html" class="hover:text-rose-500 transition-colors">CONTACT US</a></li>
-          </ul>
-        </div>
-
-        <!-- Direct Contact -->
-        <div class="space-y-3">
-          <h4 class="text-[11px] font-bold font-sans uppercase tracking-widest text-white">DIRECT CONTACT</h4>
-          <ul class="space-y-2.5 text-stone-400">
-            <li>
-              <a href="tel:+15156026843" class="flex items-center gap-2 hover:text-rose-500 transition-colors">
-                <i data-lucide="phone" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
-                <span class="text-[10px] font-mono">[+1] 515-602-6843</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://wa.me/15156026843" target="_blank" class="flex items-center gap-2 hover:text-emerald-400 transition-colors">
-                <i data-lucide="message-square" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
-                <span class="text-[10px] font-mono">WhatsApp</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:kevineevans@rhyta.com" class="flex items-center gap-2 hover:text-rose-500 transition-colors">
-                <i data-lucide="mail" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
-                <span class="text-[10px] font-mono">Email Us</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h4 class="text-xs font-mono text-white uppercase tracking-widest mb-3 sm:mb-4 font-semibold">Quick Links</h4>
+        <ul class="space-y-2.5 text-xs font-mono">
+          <li><a href="index.html" class="text-stone-400 hover:text-white transition-colors">HOME</a></li>
+          <li><a href="about.html" class="text-white font-bold transition-colors">ABOUT US</a></li>
+          <li><a href="services.html" class="text-stone-400 hover:text-white transition-colors">SERVICES</a></li>
+          <li><a href="blog.html" class="text-stone-400 hover:text-white transition-colors">BLOG</a></li>
+          <li><a href="contact.html" class="text-stone-400 hover:text-white transition-colors">CONTACT US</a></li>
+        </ul>
       </div>
 
-      <!-- Atelier Location Section -->
-      <div class="space-y-3 pt-2">
-        <h4 class="text-[11px] font-bold font-sans uppercase tracking-widest text-white">ATELIER LOCATION</h4>
-        <div class="space-y-2 text-[11px] text-stone-400">
-          <p class="flex items-center gap-2.5">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
+      <!-- Col 3: Direct Contact -->
+      <div>
+        <h4 class="text-xs font-mono text-white uppercase tracking-widest mb-3 sm:mb-4 font-semibold">Direct Contact</h4>
+        <ul class="space-y-3 text-xs font-mono">
+          <li class="flex items-center space-x-2 text-stone-400">
+            <i data-lucide="phone" class="w-4 h-4 text-rose-600 flex-shrink-0"></i>
+            <span class="text-[11px] sm:text-xs">[+1] 515-602-6843</span>
+          </li>
+          <li class="flex items-center space-x-2 text-stone-400">
+            <i data-lucide="message-square" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+            <a href="#" class="hover:text-white transition-colors">WhatsApp</a>
+          </li>
+          <li class="flex items-center space-x-2 text-stone-400">
+            <i data-lucide="mail" class="w-4 h-4 text-rose-600 flex-shrink-0"></i>
+            <a href="mailto:info@dinauto.com" class="hover:text-white transition-colors">Email Us</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Atelier Location -->
+      <div class="col-span-2 sm:col-span-1">
+        <h4 class="text-xs font-mono text-white uppercase tracking-widest mb-3 sm:mb-4 font-semibold">Atelier Location</h4>
+        <ul class="space-y-3 text-xs font-mono">
+          <li class="flex items-start space-x-2 text-stone-400">
+            <i data-lucide="map-pin" class="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5"></i>
             <span>3865 Nutters Barn Lane Clarion, IA 50525</span>
-          </p>
-          <p class="flex items-center gap-2.5">
-            <i data-lucide="clock" class="w-3.5 h-3.5 text-rose-600 shrink-0"></i>
+          </li>
+          <li class="flex items-center space-x-2 text-stone-400">
+            <i data-lucide="clock" class="w-4 h-4 text-rose-600 flex-shrink-0"></i>
             <span>Mon - Sat: 10:00 AM - 5:00 PM</span>
-          </p>
-        </div>
+          </li>
+        </ul>
       </div>
 
     </div>
-  </footer>
+
+    <!-- Bottom Bar -->
+    <div class="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] font-mono text-stone-500 gap-3 text-center md:text-left">
+      <p>Din Auto Automotive Group • Sales • Rental</p>
+      <p>© 2026 DIN AUTO. ALL RIGHTS RESERVED.</p>
+    </div>
+
+  </div>
+</footer>
 
   <script src="about.js"></script>
   <script>
